@@ -1,0 +1,84 @@
+
+/* header */
+
+.cabecera{
+    /* background-color: rgb(75, 59, 162); */
+    height: 60px;
+    text-align: center;
+}
+
+.imagen{
+    height: 60px;
+}
+
+.divprincipal{
+    height: 57rem;
+}
+
+.card{
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    width: 22rem;
+}
+
+
+.exampleInputconmbre .exampleInputconmbre{
+
+   background-color: rgb(16, 146, 63);
+    color: blue;
+}
+
+
+.txtnombre{
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+    color: fieldtext !important;
+}
+
+/* body{ */
+    /* background-color: aquamarine; */
+/* } */
+
+
+.logintxt{
+    display: flex;
+    flex-direction: column
+}
+
+
+.grilladiv{
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: beige;
+    text-align: left;
+    border-top: 1px solid !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    height: 3rem;
+}
+
+.colcabeceragrilla{
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color:#c5c9cc;
+    color:black;
+    border: 1px solid black;
+   
+
+}
+
+.colinfogrilla{
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: beige;
+
+}
+
+/* @media (max-width: 768px) {
+    .mediafont{
+        font-size: 12px;
+    }
+} */

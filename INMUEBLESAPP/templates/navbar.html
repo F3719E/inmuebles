@@ -1,0 +1,68 @@
+{% load static %}
+
+<!-- python manage.py load_flans -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+          </li> -->
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="/bienvenido">Bienvenido</a>
+          </li>
+          {% endif %}
+
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/acerca">Acerca</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/contacto">Contacto</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/grilla">Productos</a>
+          </li> -->
+      
+          <li class="nav-item">
+            <a class="nav-link" href="/agregar_usuario">Agregar usuario</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/mis_datos">Mis datos</a>
+          </li>
+
+           <!-- VALIDA SI EL USUARIO ESTA LOGEADO O NO -->
+       
+        </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="padding-right: 3rem;">
+            {% if not user.is_authenticated %} 
+            <li class="nav-item">
+              <a  class="nav-link btn btn-secondary text-white"
+              href="{% url 'login'%}">Login</a>
+            </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+                {% csrf_token %}
+              </form>
+              <a class="nav-link btn btn-secondary text-white" href="#" 
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar sesión
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        <!-- <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open mis_datos.html",
+            "file": "c:\\Apps\\Curso Python\\MODULO7\\dia7\\inmuebles\\INMUEBLESAPP\\templates\\mis_datos.html"
+        }
+    ]
+}

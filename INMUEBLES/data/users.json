@@ -1,0 +1,12 @@
+[
+    {
+        "model": "INMUEBLESAPP_usuario",
+        "pk": 1,
+        "fields": {
+            "nombres": "bruce",
+            "correo": "bruce@gmail.com",
+            "apellidos": "Dickinson"
+        }
+    }
+    
+]

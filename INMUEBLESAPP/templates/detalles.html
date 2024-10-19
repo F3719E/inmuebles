@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% block 'content' %}
+<!-- {{ form.img_url.value }} -->
+<div class="container" style="display: flex;">
+  <div class="card" style="width: 40%; ">
+    <img src="{{ form.img_url.value }}" class="card-img-top" alt="imagen" height="220px" >
+    <h5 class="card-title" style="text-align: center;">{{form.nombre.value}}</h5>
+  </div>
+
+  <div style="width: 50%; margin: auto;text-align: center;">
+    <div class="alert alert-warning">
+      <h3 class="card-title">Precio: $ {{form.precio.value}}</h3>
+      <h3 class="card-title">Precio UF: $ {{form.precio_ufs.value}}</h3>
+    </div>
+  </div>
+</div>
+
+<!-- {{ form.tipo_usuario }}
+{% if form.tipo_usuario.value == "arrendador" %}
+{{ form.tipo_usuario.value }}
+{% endif %} -->
+
+
+<div class="col-12 container-fluid" >
+
+        <div style="padding: 10px; display: flex;">
+          <div class="card" style="width: 100%;" >
+            <div style="padding: 10px; display: flex; ">
+        
+                  <!-- </div> -->
+                <!-- </div> -->
+                <br>
+                <form method="post" class="needs-validation" novalidate="">
+                  {% csrf_token %}
+                  <!-- {{form.tipo_usuario}} -->
+                  <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label for="{{ form.nombre.id_for_label }}" class="form-label" style="margin-bottom:-0.9rem;">Nombre</label>
+                      <div style="width: 100%;padding-top: 0px!important; padding-bottom: 0px!important;">{{form.nombre}}</div>
+                    </div>
+            
+            
+                    <div class="col-sm-6">
+                      <label for="{{ form.descripcion.id_for_label }}" class="form-label"
+                        style="margin-bottom:-0.9rem;">Descripcion</label>
+                      <div style="width: 100%;padding-top: 0px!important; padding-bottom: 0px!important;">{{form.descripcion}}</div>
+                    </div>
+            
+                    <div class="col-md-2" style="    padding-left: 0rem;">
+                      <label for="{{ form.tipo_inmueble.id_for_label }}" class="form-label" style="margin-bottom: -0rem;">
+                        {{ form.tipo_inmueble.label_tag }}
+                      </label>
+                      <div>{{ form.tipo_inmueble }}</div>
+                    </div>
+            
+                    <div class="col-md-2">
+                      <label for="{{ form.num_habitaciones.id_for_label }}" class="form-label">
+                        N° Habitaciones<!-- {{ form.num_habitaciones.label_tag }}  -->
+                      </label>
+                      <div>{{ form.num_habitaciones }}</div>
+                    </div>
+            
+                    <div class="col-md-2">
+                      <label for="{{ form.num_baños.id_for_label }}" class="form-label">
+                        N° baños
+                      </label>
+                      <div>{{ form.num_baños }}</div>
+                    </div>
+            
+                    <div class="col-md-2">
+                      <label for="{{ form.num_estacionamientos.id_for_label }}" class="form-label">
+                        N° Estacionamientos
+                      </label>
+                      <div>{{ form.num_estacionamientos }}</div>
+                    </div>
+            
+                    <div class="col-md-2">
+                      <label for="{{ form.m2_construidos.id_for_label }}" class="form-label">
+                        m² Construidos
+                      </label>
+                      <div>{{ form.m2_construidos }}</div>
+                    </div>
+            
+                    <div class="col-md-2">
+                      <label for="{{ form.m2_totales.id_for_label }}" class="form-label">
+                        m² Totales
+                      </label>
+                      <div>{{ form.m2_totales }}</div>
+                    </div>
+            
+                    <div class="col-md-2" style="padding-left: 0rem;">
+                      <label for="{{ form.precio.id_for_label }}" class="form-label">
+                        Precio
+                      </label>
+                      <div>{{ form.precio }}</div>
+                    </div>
+            
+                    <div class="col-md-2" style="padding-left: 0rem;">
+                      <label for="{{ form.precio_ufs.id_for_label }}" class="form-label">
+                        Precio UF
+                      </label>
+                      <div>{{ form.precio_ufs }}</div>
+                    </div>
+            
+                    <!-- <div class="col-md-2" style="visibility: hidden">
+                      <label for="{{ form.img_url.id_for_label }}" class="form-label" style="visibility: hidden">
+                        Precio UF
+                      </label>
+                      <div style="padding-left: 0rem; visibility: hidden">{{ form.img_url }}
+                      </div>
+                    </div> -->
+
+                    <div class="col-md-2" style="padding-left: 0rem;">
+                      <label for="{{ form.img_url.id_for_label }}" class="form-label" >
+                        URL imagen
+                      </label>
+                      <div style="width: 39.5rem;">{{ form.img_url }}</div>
+                    </div>
+            
+                    <div class="col-8" style="padding-left: 0rem;">
+                      <label for="{{ form.direccion.id_for_label }}" class="form-label"
+                        style="margin-bottom:-0.9rem;">Direccion</label>
+                      <div style="width: 100%;padding-top: 0px!important; padding-bottom: 0px!important;">{{form.direccion}}</div>
+                    </div>
+            
+                    <!-- <div class="col-4">
+                      <label class="form-label" style="    margin-bottom: 0rem;">Email Contacto</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" id="correo" placeholder="Email@..." required="">
+                        <div class="invalid-feedback">
+                          Su Email de usuario es obligatorio.
+                        </div>
+                      </div>
+                    </div> -->
+                    
+                    <!-- {{form.tipo_usuario.value}} -->
+                    {% if form.tipo_usuario.value == "arrendador" %}
+                      <div style="display: flex; width: 100%; justify-content: center;" >
+                          <div class="col-4">
+                            <button type="submit" name="Actualizar" value="ActualizarBTN" class="w-100 btn btn-primary btn-lg">Actualizar</button>
+                            <input type="hidden"  value="Actualizarxxx" />
+                          </div>
+                          <div class="col-4">
+                            <button type="submit" name="Eliminar" value="Eliminar"  class="w-100 btn btn-warning btn-lg">Eliminar</button>
+                            <input type="hidden"  />
+                          </div>
+                          <!-- <div class="col-4">
+                            <button class="w-100 btn btn-info btn-lg" type="submit" >Btn 3</button>
+                          </div> -->
+                      </div>
+                    {% else %}
+
+                    <div style="display: flex; width: 100%; justify-content: center;">
+                      <div class="col-4">
+                        <button type="submit" name="Actualizar" value="ActualizarBTN" class="w-100 btn btn-primary btn-lg"
+                          disabled="true">Actualizar</button>
+                        <input type="hidden" value="Actualizarxxx" />
+                      </div>
+                      <div class="col-4">
+                        <button type="submit" name="Eliminar" value="Eliminar" class="w-100 btn btn-warning btn-lg"
+                          disabled="true">Eliminar</button>
+                        <input type="hidden" />
+                      </div>
+                      <!-- <div class="col-4">
+                        <button class="w-100 btn btn-info btn-lg" type="submit" >Btn 3</button>
+                      </div> -->
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                      <!-- <div style="display: flex; width: 100%; justify-content: center;">
+                        <div class="col-4">
+                          <button type="submit" value="Actualizar" class="w-100 btn btn-primary btn-lg" disabled="true">
+                            Actualizar</button>
+                          <input type="hidden" name="next" value="{{ next }}" />
+                        </div>
+                        <div class="col-4">
+                          <button class="w-100 btn btn-secondary btn-lg" type="submit" disabled="true">Btn 2</button>
+                        </div>
+                      
+                      </div> -->
+                    {% endif %}
+
+                    {% if form.errors %}
+                    <div class="alert alert-danger" role="alert" style="margin-top: 1rem; margin-bottom: 1rem;padding-left: 0rem;">
+                      <p>Error al grabar. Inténtalo de nuevo.</p>
+                    </div>
+                    {% endif %}
+                    {% if messages %}
+                    <ul class="messages" style="margin-top: 1rem; margin-bottom: 1rem;padding-left: 0rem;">
+                      {% for message in messages %}
+                      <div class="alert alert-success" role="alert">
+                        ¡Inmueble actulizado con éxito!
+                      </div>
+                      {% endfor %}
+                    </ul>
+                    {% endif %}
+            
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="container" style="width: 100%;">
+          <div class="card" style="width: 100%;">
+            <div class="card-body"> -->
+             
+            <!-- </div>
+          </div>
+        </div> -->
+
+     
+
+</div>
+
+{% endblock %}

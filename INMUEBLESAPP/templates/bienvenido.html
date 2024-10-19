@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+    <!-- <h2>Bienvenido {{ user.get_username | upper }}</h2> -->
+ <div class="row d-none d-md-block" style="text-align: center;">
+        <!-- d-none d-md-block: Esta clase asegura que el contenido se oculte en pantallas menores a 768px (media query md) -->
+        <div class="col">
+          <div class="h-100 p-2 text-white bg-dark rounded-3"
+                        style="font-size: 1rem; background-color: #c5c9cc !important; color: black !important;">
+            <h2 style="font-size: 1rem;">Bienvenido {{ user.get_username | upper }}</h2>
+            <!-- <p>
+                      Esta es tu lista de inmuebles.
+                    </p> -->
+            <form class="d-flex" method="post">
+              {% csrf_token %}
+              {{ itm_inmueble.usuario_id }}
+              
+              {{ itm_inmueble.inmueble_id }}
+              {{itm_inmueble.tipo_usuario}}
+ 
+              <!-- {% if usuario.tipo_usuario == 'arrendatario' %}
+              {{usuario.tipo_usuario}}
+              {% endif %} -->
+                
+<!-- {{usuario.tipo_usuario}} -->
+
+              <input class="form-control me-2" name="txt_busqueda" type="search" placeholder="Buscar por Region..." aria-label="Search" 
+                    style="width: 15rem;">{{form.txt_busqueda}}
+              <button class="btn btn-outline-success" type="submit">Search</button>
+               
+              {% if usuario.tipo_usuario == 'arrendador' %}
+                <div style="display: flex;padding-left: 3rem;"><a href="{% url 'agregar_inmueble' usuario_id=0 %}" class="btn btn-primary">AGREGAR INMUEBLE</a></div>
+              {% endif %}
+              <div style="display: flex; width: 100%;justify-content: flex-end;padding-right: 4.5rem;">
+                <a href="{% url 'contacto' %}" class="btn btn-outline-light" style="background: dimgray; border-color: #6c757d; ">
+                  Contáctanos
+                </a>
+              </div>
+            </form>
+          
+          </div>
+        </div>
+      </div>
+    <div  style="display: flex; flex-wrap: wrap; justify-content: center;">
+        {% for itm_inmueble in inmuebles_usuario %} 
+          <!-- {{itm_inmueble.id}} -->
+          <div style="padding: 10px;">
+            <div class="card">
+              <img src={{ itm_inmueble.img_url }} class="card-img-top" alt="imagen" height="220px">
+              <div class="card-body">
+                <p class="card-title">{{itm_inmueble.nombre}}</p>
+                <h5 class="card-text">{{itm_inmueble.direccion}}</h5>
+                <a href="{% url 'detalles' inmueble_id=itm_inmueble.id %}" class="btn btn-primary">DETALLES</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

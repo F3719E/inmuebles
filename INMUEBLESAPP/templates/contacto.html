@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+{% block 'content' %}
+<div class="container">
+    <div  style="display: flex; flex-wrap: wrap; justify-content: center; padding: 10px;">
+        <div class="card" style="width:33rem;" >
+            
+                <form  style="width: 100%;"  method="post">
+                    {% csrf_token %} <!--   {{form}} -->
+                
+                <label id="1111" for="{{form.customer_name.id_for_label}}" style="margin-bottom: 0;"
+                class="form-label">{{form.customer_name.label_tag}}</label>
+
+                <div  id="2222" >{{form.customer_name}}</div>
+                <div  id="3333">{{form.customer_name.errors}}</div>
+
+                <label for="{{form.customer_email.id_for_label}}" style="margin-bottom: 0;"
+                >{{form.customer_email.label_tag}}</label
+                >
+                <div>{{form.customer_email}}</div>
+                <div>{{form.customer_email.errors}}</div>
+
+                <label for="{{form.message.id_for_label}}" style="margin-bottom: 0;"
+                >{{form.message.label_tag}}</label
+                >
+                <div>{{form.message}}</div>
+                <div>{{form.message.errors}}</div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

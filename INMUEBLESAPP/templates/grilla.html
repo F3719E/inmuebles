@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+{% block 'content' %}
+
+
+
+    <div  style="display: flex; flex-wrap: wrap; justify-content: center; padding: 0px; scroll-padding-top: 1rem;">
+        
+        <div class="container text-center" style="width: 50rem;">
+            <div class="row" >
+                <div class="col colcabeceragrilla" >
+                    Nombre
+                </div>
+                <div class="col colcabeceragrilla">
+                    Descripcion
+                </div>
+                <div class="col colcabeceragrilla">
+                    Detalles
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div  style="display: flex; flex-wrap: wrap; justify-content: center; padding: 0px; ">
+        <div class="container text-center" style="border: solid 1px; width: 50rem;">
+            <div class="row">
+                <div class="col colinfogrilla" >
+                    {% for flan in flans_publicos %}
+                        <div class="border border-start-0 grilladiv mediafont" >
+                            {{flan.name}}
+                        </div>
+                    {%endfor%}
+                </div>
+
+                <div class="col colinfogrilla">
+                    {% for flan in flans_publicos %}
+                    <div  class="border border-start-0 grilladiv mediafont">
+                            {{flan.description}}
+                        </div>
+                    {%endfor%}
+                </div>
+
+                <div class="col colinfogrilla">
+                    {% for flan in flans_publicos %}
+                        <div  class="border border-start-0 grilladiv mediafont" >
+                            <a href="{% url 'detalles' flan_uuid=flan.flan_uuid %}">Detalles</a>
+                        </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+{% endblock %}
